@@ -8,7 +8,7 @@ function preload() {
   // Load the shader files
   shaderProgram = loadShader('vertex.vert', 'fragment.frag');
   // Load the font file
-  font = loadFont('PixelifySans-Regular.ttf');
+  font = loadFont('SourceCodePro-Regular.ttf');
 }
 
 function setup() {
@@ -95,6 +95,12 @@ function draw() {
   background(0);
   image(starsFbo, -width / 2, -height / 2, width, height);
   image(sphereFbo, -width / 2, -height / 2, width, height);
+
+  // Check for WebGL errors
+  let error = gl.getError();
+  if (error !== gl.NO_ERROR) {
+    console.error('WebGL Error:', error);
+  }
 }
 
 function getScreenPosition(pos) {
