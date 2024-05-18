@@ -3,6 +3,7 @@ precision mediump float;
 
 varying vec3 vNormal;
 varying vec3 vPosition;
+varying vec3 vColor;
 uniform float uTime;
 uniform vec3 uLightPosition;
 
@@ -14,11 +15,8 @@ void main() {
   // Calculate the diffuse lighting
   float diff = max(dot(normal, lightDir), 0.0);
 
-  // Calculate a basic gradient color
-  vec3 color = vec3(0.0, 1.0, 0.0) * (0.5 + 0.5 * sin(vPosition.y * 10.0 + uTime));
-
   // Apply the lighting to the color
-  color *= diff;
+  vec3 color = vColor * diff;
 
   gl_FragColor = vec4(color, 1.0);
 }
