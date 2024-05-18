@@ -8,7 +8,7 @@ function preload() {
   // Load the shader files
   shaderProgram = loadShader('vertex.vert', 'fragment.frag');
   // Load the font file
-  font = loadFont('SourceCodePro-Regular.ttf');
+  font = loadFont('PixelifySans-Regular.ttf');
 }
 
 function setup() {
